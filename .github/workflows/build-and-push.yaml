@@ -23,4 +23,4 @@ jobs:
         run: |
           docker build -t ghcr.io/glebtee/winrunner
           echo IMAGE_ID
-          docker push ghcr.io/glebtee/wwinrunner
+          docker push ghcr.io/glebtee/winrunner
