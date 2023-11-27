@@ -1,0 +1,26 @@
+name: Build and push Winrunner Docker Image to GCR
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-push-docker-image:
+    runs-on: windows
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Login GitHub Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Build and Push Runner Image
+        run: |
+          docker build -t ghcr.io/glebtee/winrunner
+          echo IMAGE_ID
+          docker push ghcr.io/glebtee/wwinrunner
