@@ -21,6 +21,6 @@ jobs:
       
       - name: Build and Push Runner Image
         run: |
-          docker build -t ghcr.io/glebtee/winrunner .
+          docker build -t ghcr.io/glebtee/winrunner:latest .
           echo IMAGE_ID
-          docker push ghcr.io/glebtee/winrunner
+          docker push ghcr.io/glebtee/winrunner:latest
