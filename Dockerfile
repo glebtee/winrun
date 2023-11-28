@@ -19,6 +19,7 @@ RUN powershell choco install git.install --params "'/GitAndUnixToolsOnPath'" -y
 RUN powershell choco feature enable -n allowGlobalConfirmation
 
 RUN Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-DockerCE/install-docker-ce.ps1" -o install-docker-ce.ps1
-.\install-docker-ce.ps1
+
+RUN .\install-docker-ce.ps1
 
 CMD [ "pwsh", "-c", "./config.cmd --name $env:RUNNER_NAME --url https://github.com/$env:RUNNER_REPO --token $env:RUNNER_TOKEN --labels $env:RUNNER_LABELS --unattended --replace --ephemeral; ./run.cmd"]
