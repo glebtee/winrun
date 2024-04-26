@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Say Hello by Docker
         run: |
-          docker run hello-worl
+          docker run hello-world
